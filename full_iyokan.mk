@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit from iyokan device
 $(call inherit-product, device/semc/iyokan/iyokan.mk)
@@ -28,3 +28,7 @@ PRODUCT_DEVICE := iyokan
 PRODUCT_BRAND := SEMC
 PRODUCT_MANUFACTURER := SEMC
 PRODUCT_MODEL := Xperia Pro
+PRODUCT_PACKAGES += Apollo
+
+$(call inherit-product, device/semc/iyokan/iyokan.mk)
+$(call inherit-product-if-exists, vendor/semc/iyokan/iyokan-vendor.mk)
